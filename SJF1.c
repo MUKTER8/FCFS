@@ -132,10 +132,10 @@ void printfunction(){
 int main()
 {
 int ch;
-do{
     printf("Press 1:SAME ARRIVAL TIME\n");
     printf("Press 2 :Different Arrival time\n");
     printf("Press any key :Exit the program\n");
+do{
     printf("Enter your choice : ");
     scanf("%d",&ch);
     switch (ch)
