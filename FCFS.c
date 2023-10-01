@@ -69,6 +69,14 @@ int main()
                 ct[i]=ct[j];
                 ct[j]=tmp;
 
+                tmp=tat[i];
+                tat[i]=tat[j];
+                tat[j]=tmp;
+                
+                tmp=wt[i];
+                wt[i]=wt[j];
+                wt[j]=tmp;
+
             }
         }
     }
