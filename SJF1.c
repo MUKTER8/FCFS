@@ -121,7 +121,7 @@ void printfunction(){
 
     for (i = 0; i < n; i++)
     {
-        printf("P[%d]\t\t%d\t\t%d\t\t%d\t\t%d\n", p[i], bt[i], at[i], tat[i], wt[i]);
+        printf("P%d\t\t%d\t\t%d\t\t%d\t\t%d\n", p[i], bt[i], at[i], tat[i], wt[i]);
     }
 
 
@@ -154,7 +154,7 @@ do{
     printf("\nExit the program.");
         break;
     }
-}while (ch!=-1);
+}while (ch==1);
 
 }
 
