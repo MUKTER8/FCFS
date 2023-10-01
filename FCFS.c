@@ -1,7 +1,5 @@
 #include<stdio.h>
 #include<conio.h>
-
-
 int main()
 {   
     int i,j,n,p[20]={0},bt[20]={0},at[20]={0},wt[20]={0},tat[20]={0},ct[20]={0},tmp;
