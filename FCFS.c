@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include<conio.h>
+
+
 int main()
 {   
     int i,j,n,p[20]={0},bt[20]={0},at[20]={0},wt[20]={0},tat[20]={0},ct[20]={0},tmp;
@@ -18,6 +20,7 @@ int main()
     for(i=0;i<n;i++){
         scanf("%d",&at[i]);
     }
+    //sorting
     for(i=0;i<n;i++){
         for(j=i+1;j<n;j++){
             if(at[i]>at[j]){
@@ -47,10 +50,32 @@ int main()
         wt[i]=tat[i]-bt[i];
         awt=awt+wt[i];
     }
-    printf("Process\tBurst time\tArrival time\tWaiting time\tTurnaround time\n");
+     for(i=0;i<n;i++){
+        for(j=i+1;j<n;j++){
+            if(p[i]>p[j]){
+                tmp=at[i];
+                at[i]=at[j];
+                at[j]=tmp;
+
+                tmp=bt[i];
+                bt[i]=bt[j];
+                bt[j]=tmp;
+
+                tmp=p[i];
+                p[i]=p[j];
+                p[j]=tmp;
+
+                tmp=ct[i];
+                ct[i]=ct[j];
+                ct[j]=tmp;
+
+            }
+        }
+    }
+    printf("Process\tBurst time\tArrival time\tCompletion time\t Waiting time\tTurnaround time\n");
     for(i=0;i<n;i++){
      
-       printf("P%d\t %d \t\t%d\t\t%d\t\t%d\n",p[i],bt[i],at[i],wt[i],tat[i]);
+       printf("P%d\t %d \t\t%d\t\t\t%d\t\t%d\t\t%d\n",p[i],bt[i],at[i],ct[i],wt[i],tat[i]);
     }
     awt=awt/(float)n;
     atat=atat/(float)n;
