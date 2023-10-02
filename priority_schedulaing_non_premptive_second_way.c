@@ -1,10 +1,8 @@
 #include <stdio.h>
-
-int main() {
-    int i, j, n, tmp, p[20], pri[20], bt[20], at[20], wt[20] = {0}, tat[20] = {0}, ct[20] = {0};
-    float atat = 0, awt = 0, sum = 0;
-
-    printf("Enter the number of processes: ");
+ int i, j, n, tmp, p[20], pri[20], bt[20], at[20], wt[20] = {0}, tat[20] = {0}, ct[20] = {0};
+   
+void Getinput(){
+ printf("Enter the number of processes: ");
     scanf("%d", &n);
 
     printf("Processes: ");
@@ -26,8 +24,11 @@ int main() {
     for (i = 0; i < n; i++) {
         scanf("%d", &at[i]);
     }
- 
-    // Sort the processes based on arrival time in ascending order
+}
+void Non_Priority(){
+     float atat = 0, awt = 0, sum = 0;
+
+      // Sort the processes based on arrival time in ascending order
     for (i = 0; i < n; i++) {
         for (j = i + 1; j < n; j++) {
             if (at[i] > at[j]) {
@@ -95,24 +96,44 @@ int main() {
             ct[i] = ct[i - 1] + bt[i];
         }
 
-        tat[i] = ct[i] - at[i];
-        wt[i] = tat[i] - bt[i];
-    }
+         tat[i] = ct[i] - at[i];
+         atat += tat[i];
+         wt[i] = tat[i] - bt[i];
+         awt += wt[i];
+        }
 
-    printf("Process\tPriority\tBurst time\tArrival time\tWaiting time\tTurnaround time\n");
+    awt /= n;
+    atat /= n;
+
+     printf("Process\tPriority\tBurst time\tArrival time\tWaiting time\tTurnaround time\n");
     for (i = 0; i < n; i++) {
         printf("P%d\t%d\t\t%d\t\t%d\t\t%d\t\t%d\n", p[i], pri[i], bt[i], at[i], wt[i], tat[i]);
     }
 
-    for (i = 0; i < n; i++) {
-        awt += wt[i];
-        atat += tat[i];
-    }
-
-    awt /= n;
-    atat /= n;
+   
     printf("Average waiting time: %.2f\n", awt);
-    printf("Average turnaround time: %.2f", atat);
+    printf("Average turnaround time: %.2f\n", atat);
+
+}
+int main() {
+   int ch;
+   printf("Non-Preemptive priority CPU Scheduling\n");
+   printf("Press 1:Start the program.\nPress any key:Exit the program\n");
+   do{
+    printf("Enter your choice : ");
+    scanf("%d",&ch);
+    switch (ch)
+    {
+    case 1:
+          Getinput();
+          Non_Priority();
+
+        break;
+    
+    default:
+        break;
+    }
+   }while(ch==1);
 
     return 0;
 }
