@@ -156,7 +156,5 @@ do{
     }
 }while (ch==1);
 
+return 0;
 }
-
-
-   
