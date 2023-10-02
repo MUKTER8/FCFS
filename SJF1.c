@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 int i, j, k = 1, n, tmp, p[15], bt[15], at[15], ct[15], tat[15], wt[15];
-float atat = 0, awt = 0;
 int bt_max = 0;
 
 void getinput() {
@@ -23,7 +22,7 @@ void getinput() {
 
 void differentArrivalTime() {
     int min, tmp;
-    
+    float atat = 0, awt = 0;
     for (i = 0; i < n; i++) {
         for (j = i + 1; j < n; j++) {
             if (at[i] > at[j]) {
@@ -63,7 +62,7 @@ void differentArrivalTime() {
         k++;
     }
     
-    ct[0] = at[0];
+    ct[0] = 0;
     for (i = 0; i < n; i++) {
         ct[i] = bt[i] + ct[i - 1];
         tat[i] = ct[i] - at[i];
@@ -73,9 +72,17 @@ void differentArrivalTime() {
     }
      atat=atat/n;
      awt=awt/n;
+     
+    printf("Process\tBT\tAT\tTAT\tWT\n");
+    for (i = 0; i < n; i++) {
+        printf("P%d\t%d\t%d\t%d\t%d\n", p[i], bt[i], at[i], tat[i], wt[i]);
+    }
+    printf("Average turnaround time: %.2f\n", atat);
+    printf("Average waiting time: %.2f\n",awt);
 }
 
 void sameArrivalTime() {
+    float atat = 0, awt = 0;
     for (i = 0; i < n; i++) {
         for (j = i + 1; j < n; j++) {
             if (bt[i] > bt[j]) {
@@ -104,9 +111,7 @@ void sameArrivalTime() {
     }
     atat=atat/n;
     awt=awt/n;
-}
 
-void printResults() {
     printf("Process\tBT\tAT\tTAT\tWT\n");
     for (i = 0; i < n; i++) {
         printf("P%d\t%d\t%d\t%d\t%d\n", p[i], bt[i], at[i], tat[i], wt[i]);
@@ -130,18 +135,16 @@ int main() {
             case 1:
                 getinput();
                 sameArrivalTime();
-                printResults();
                 break;
             case 2:
                 getinput();
                 differentArrivalTime();
-                printResults();
                 break;
             default:
                 printf("\nExit the program.\n");
                 break;
         }
-    } while (ch == 1 || ch == 2);
+    } while (ch);
     
     return 0;
 }
