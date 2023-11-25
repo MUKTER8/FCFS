@@ -36,7 +36,7 @@ int main() {
         }
 
         if (j == n1) {
-            printf("P%d \t\t..\t ..\t\tWait\n",p[i]);
+            printf("P%d \t\t..\t    ..\t\tWait\n",p[i]);
         }
     }
 
