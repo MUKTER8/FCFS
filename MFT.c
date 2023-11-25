@@ -28,7 +28,7 @@ int main() {
             if (!partitionUsed[j] && memory[j] >= psize[i]) {
                 wastage[i] = memory[j] - psize[i];
                 totalWastage += wastage[i];
-                printf("P%d\t\t%d\t %d\n", p[i], j,wastage[i]);
+                printf("P%d\t\t%d\t    %d\n", p[i], j,wastage[i]);
                 memory[j] -= psize[i];
                 partitionUsed[j] = true; 
                 break;
