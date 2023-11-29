@@ -5,29 +5,29 @@ int main()
     int time = 0, done = 0;
     float t_tat = 0, t_wt = 0;
 
-    printf("Enter the number of process---> ");
+    printf("Enter the number of process:");
     scanf("%d", &n);
 
-    printf("Enter process values of all the process---> ");
+    printf("Enter process values:");
     for (i = 0; i < n; i++)
     {
         scanf("%d", &p[i]);
     }
 
-    printf("Enter brust time of all the process---> ");
+    printf("Enter brust time:");
     for (i = 0; i < n; i++)
     {
         scanf("%d", &bt[i]);
         rt[i] = bt[i];
     }
 
-    printf("Enter arrival time of all the process---> ");
+    printf("Enter arrival time: ");
     for (i = 0; i < n; i++)
     {
         scanf("%d", &at[i]);
     }
 
-    printf("Enter time quantam---> ");
+    printf("Enter time quantam : ");
     {
         scanf("%d", &tq);
     }
@@ -98,19 +98,13 @@ int main()
         }
     }
 
-    printf("\n-------------|---------------|---------------|---------------|---------------|--------------\n");
     printf("Process\t\tBT\t\tAT\t\tCT\t\tTAT\t\tWT\n");
-    printf("-------------|---------------|---------------|---------------|---------------|--------------\n");
 
     for (i = 0; i < n; i++)
     {
         printf("P[%d]\t\t%d\t\t%d\t\t%d\t\t%d\t\t%d\n", p[i], bt[i], at[i], ct[i], tat[i], wt[i]);
-        printf("-------------|---------------|---------------|---------------|---------------|--------------\n");
     }
 
-    printf("\n\t\t\t\t||----------------------||\n");
-    printf("\t\t\t\t    AvgTAT : %f    \n", (t_tat / n));
-    printf("\t\t\t\t||----------------------||\n");
-    printf("\t\t\t\t    AvgWT  : %f    \n", (t_wt / n));
-    printf("\t\t\t\t||----------------------||\n");
+    printf("Average TAT : %.2f \n", (t_tat / n));
+    printf("Average WT  : %.2f \n", (t_wt / n));
 }
